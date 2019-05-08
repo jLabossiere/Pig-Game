@@ -1,0 +1,19 @@
+{
+  "name": "pig-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp-eslint": "^5.0.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.5",
+    "eslint": "^5.16.0",
+    "gulp": "^4.0.2"
+  }
+}
