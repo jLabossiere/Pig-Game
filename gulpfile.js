@@ -6,18 +6,21 @@ gulp.task('styles', () => {
 	return gulp.src('css/*.css').pipe(browserSync.stream());
 });
 
+gulp.task('lint', () => {
+	gulp
+		.src('js/**/*.js')
+		.pipe(eslint())
+		.pipe(eslint.format());
+});
+
 gulp.task(
 	'default',
-	gulp.series('styles', () => {
+	gulp.parallel('styles', 'lint', () => {
 		browserSync.init({
 			server: './'
 		});
 
 		gulp.watch('css/*.css', gulp.series('styles'));
-
-		gulp
-			.src('js/**/*.js')
-			.pipe(eslint())
-			.pipe(eslint.format());
+		gulp.watch('js/**/*.js', gulp.series('lint'));
 	})
 );
